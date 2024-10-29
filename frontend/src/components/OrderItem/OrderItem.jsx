@@ -57,7 +57,7 @@ const OrderItem = ({ order }) => {
                             <h4 className="font-[200] text-[12px]">x{item?.quantity}</h4>
                         </div>
                     </div>
-                    <div className="flex items-center text-sm font-price">{item?.product.description}</div>
+                    <div className="flex items-center text-sm font-price max-w-[500px]">{item?.product.description}</div>
                     <div className="font-price flex items-center justify-center text-sm">
                         {formatPrice(item?.product?.price)}
                     </div>
