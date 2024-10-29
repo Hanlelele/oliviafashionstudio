@@ -1,8 +1,6 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
-//const Order = require("../models/Order");
-
 const base = "https://api-m.sandbox.paypal.com";
 const { PAYPAL_CLIENT_ID, PAYPAL_CLIENT_SECRET } = process.env;
 

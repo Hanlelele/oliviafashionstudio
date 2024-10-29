@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRoutes, adminRoutes } from './routes/User';
+import { publicRoutes, adminRoutes } from './routes/index';
 import { Fragment } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import store from './stores';

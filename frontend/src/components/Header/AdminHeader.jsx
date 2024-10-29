@@ -105,9 +105,7 @@ const Header = () => {
                                     </p>
                                 </>
                             )}
-                            {/* <Category className="w-[20px] h-[20px] fill-dark group-hover:fill-grey-500" />
 
-                            <p className="font-body text-xs text-dark group-hover:text-grey-500">Categories</p> */}
                         </NavLink>
                         <NavLink
                             className="group mr-[18px] flex flex-col items-center justify-center gap-1"

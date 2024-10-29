@@ -4,13 +4,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
-const axios = require("axios");
-const https = require("https");
-// const axiosInstance = axios.create({
-//   httpsAgent: new https.Agent({
-//     rejectUnauthorized: false, // Set this to false to ignore certificate errors
-//   }),
-// });
 
 let refreshTokens = [];
 

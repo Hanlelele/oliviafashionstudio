@@ -9,7 +9,7 @@ const productController = {
 
       const keyWordSearch = req.query.search;
 
-      const query = {}; // Define the query variable
+      const query = {}; 
 
       if (keyWordSearch) {
         query.$or = [
@@ -23,7 +23,7 @@ const productController = {
       }
 
       const sortDirection = order === "desc" ? -1 : 1;
-      const sortField = "price"; // You can change this to any field you want to sort by
+      const sortField = "price";
 
       const products = await Product.find(query)
         .skip(offset)
@@ -183,10 +183,9 @@ const productController = {
 
   getSaleProducts: async (req, res) => {
     try {
-      // Lấy 15 sản phẩm có discountPercentage lớn nhất
       const products = await Product.find()
-        .sort({ discountPercentage: -1 }) // Sắp xếp giảm dần theo discountPercentage
-        .limit(15); // Giới hạn kết quả trả về 15 sản phẩm
+        .sort({ discountPercentage: -1 })
+        .limit(15); 
   
       res.status(200).json({
         success: true,
@@ -204,20 +203,19 @@ const productController = {
 
   getTopProducts: async (req, res) => {
     try {
-      // Sử dụng aggregation để tính tổng số lượng sản phẩm đã được đặt
+
       const topProducts = await Order.aggregate([
-        { $unwind: "$items" }, // Tách mảng items thành các document riêng lẻ
+        { $unwind: "$items" }, 
         {
           $group: {
-            _id: "$items.product", // Nhóm theo productId
-            totalQuantity: { $sum: "$items.quantity" } // Tính tổng số lượng cho mỗi productId
+            _id: "$items.product", 
+            totalQuantity: { $sum: "$items.quantity" } 
           }
         },
-        { $sort: { totalQuantity: -1 } }, // Sắp xếp theo tổng số lượng giảm dần
-        { $limit: 15 } // Giới hạn kết quả trả về 15 sản phẩm
+        { $sort: { totalQuantity: -1 } },
+        { $limit: 15 } 
       ]);
   
-      // Lấy chi tiết sản phẩm từ danh sách productId thu được từ aggregation
       const productIds = topProducts.map(product => product._id);
       const products = await Product.find({ _id: { $in: productIds } });
   

@@ -2,7 +2,7 @@ const routes = {
     home: '/',
     product: '/product/:id',
     login: '/login',
-    loginGoogle: '//login-success/:userId',
+    loginGoogle: '/login-success/:userId',
     register: '/register',
     category: '/category/:categoryId',
     search: '/search',
