@@ -59,7 +59,7 @@ const Header = () => {
 
     return (
         <div className="lg:h-[86px] sticky h-[60px]">
-            <div className="max-w-[1200px] flex justify-between mx-0 my-auto">
+            <div className="max-w-full flex justify-between mx-0 my-auto">
                 <NavLink to="/" className="w-[86px] h-auto">
                     <Logo className="lg:h-[86px] w-auto h-[60px]" />
                 </NavLink>
