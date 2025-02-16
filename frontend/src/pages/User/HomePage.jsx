@@ -61,7 +61,7 @@ const HomePage = () => {
 
     return saleProducts && topProducts ? (
         <div className="flex flex-col bg-grey-100 items-center gap-y-[30px] pb-[50px] z-0">
-            <div className="h-[400px] w-full bg-white mt-[20px] border border-grey-300 rounded-lg shadow-sm flex gap-2">
+            <div className="h-[400px] w-full bg-white mt-[20px] border border-grey-300 rounded-lg shadow-sm flex gap-2 relative">
                 <div className="hidden md:block w-1/4">
                     <div className="flex gap-x-[12px] justify-center mt-4">
                         <Menu className="w-[24px] h-[24px] fill-dark hover:opacity-60 cursor-pointer" />
@@ -85,7 +85,7 @@ const HomePage = () => {
                     </ul>
                 </div>
 
-                <div className="ads h-full flex-1 z-0">
+                <div className="ads h-full flex-1 z-0 relative">
                     <Carousel
                         navButtonsAlwaysVisible={true}
                         swipe={false}
@@ -121,7 +121,7 @@ const HomePage = () => {
                                 src={category.banner}
                                 key={index}
                                 onClick={() => {
-                                    navigate(`/product/category/${category._id}`);
+                                    navigate(`/product/${category._id}`);
                                 }}
                                 style={{
                                     width: '100%',
