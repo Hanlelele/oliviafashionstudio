@@ -88,7 +88,50 @@ const HomePage = () => {
                 </div>
 
                 <div className="h-full flex-1 z-0">
-                        <h2>Text</h2>
+                    <Carousel
+                        navButtonsAlwaysVisible={true}
+                        swipe={false}
+                        interval={5000}
+                        className="object-fill"
+                        IndicatorIcon={
+                            <div style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: 'grey' }} />
+                        }
+                        indicatorIconButtonProps={{
+                            style: {
+                                padding: '2px',
+                                color: 'blue',
+                            },
+                        }}
+                        activeIndicatorIconButtonProps={{
+                            style: {
+                                backgroundColor: 'white',
+                            },
+                        }}
+                        indicatorContainerProps={{
+                            style: {
+                                position: 'absolute',
+                                bottom: '10px',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                zIndex: 2,
+                            },
+                        }}
+                    >
+                        {categoryList.map((category, index) => (
+                            <img
+                                className="cursor-pointer object-cover max-w-full max-h-full"
+                                src={category.banner}
+                                key={index}
+                                onClick={() => {
+                                    navigate(`/category/${category._id}`);
+                                }}
+                                style={{
+                                    width: '100%',
+                                    height: '399px',
+                                }}
+                            ></img>
+                        ))}
+                    </Carousel>
                 </div>
             </div>
 
