@@ -87,7 +87,7 @@ const HomePage = () => {
                     </ul>
                 </div>
 
-                <div className="ads h-full flex-1 z-0">
+                <div className="h-full flex-1 z-0">
                         <h2>Text</h2>
                 </div>
             </div>
