@@ -37,7 +37,7 @@ router.get(
     })(req, res, next);
   },
   (req, res) => {
-    res.redirect(`http://localhost:5173/login-success/${req.user?.id}`);
+    res.redirect(`${process.env.API_REDIRECT_URL}/login-success/${req.user?.id}`);
   }
 );
 

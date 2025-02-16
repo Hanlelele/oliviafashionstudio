@@ -34,6 +34,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "https://oliviafashionstudio.netlify.app/",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
