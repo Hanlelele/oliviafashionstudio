@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import paymentApi from '../../api/paymentApi';
 import { createAsyncOrder } from '../../stores/OrderSlice/OrderSlide';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Paypal = (props) => {
     const { handleOrder, checkCoupon } = props;
     const { token } = useAuth();
@@ -44,7 +46,7 @@ const Paypal = (props) => {
 
     const createOrder = async () => {
         try {
-            const response = await fetch('http://localhost:8000/api/order/paypal', {
+            const response = await fetch(`${API_URL}/api/order/paypal`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +72,7 @@ const Paypal = (props) => {
 
     const onApprove = async (data) => {
         try {
-            const response = await fetch(`http://localhost:8000/api/order/paypal/${data.orderID}/capture`, {
+            const response = await fetch(`${API_URL}/api/order/paypal/${data.orderID}/capture`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

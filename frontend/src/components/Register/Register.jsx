@@ -10,6 +10,8 @@ const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^.{8,24}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Register = () => {
     const navigate = useNavigate();
 
@@ -195,7 +197,7 @@ const Register = () => {
                 <div
                     className="OAuth px-[20px] py-[10px] flex items-center justify-center gap-x-2 
         border border-grey-400 cursor-pointer hover:bg-grey-100"
-                    onClick={() => window.open('http://localhost:8000/api/auth/google', '_self')}
+                    onClick={() => window.open(`${API_URL}/api/auth/google`, '_self')}
                 >
                     <Google className="h-[22px]" />
                     <span className="font-body">Google</span>

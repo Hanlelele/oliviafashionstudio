@@ -10,6 +10,8 @@ import { toast } from 'react-toastify';
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const PWD_REGEX = /^.{8,24}$/;
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
     const navigate = useNavigate();
     const { login, user } = useAuth();
@@ -145,7 +147,7 @@ const Login = () => {
                 <div
                     className="OAuth px-[20px] py-[10px] flex items-center justify-center gap-x-2 
         border border-grey-400 cursor-pointer hover:bg-grey-100"
-                    onClick={() => window.open('http://localhost:8000/api/auth/google', '_self')}
+                    onClick={() => window.open(`${API_URL}/api/auth/google`, '_self')}
                 >
                     <Google className="h-[22px]" />
                     <span className="font-body">Google</span>

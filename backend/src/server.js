@@ -4,8 +4,6 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 dotenv.config();
-// const https = require("https");
-// const fs = require("fs");
 
 const productRoute = require("./routes/product");
 const categoryRoute = require("./routes/category");
@@ -36,8 +34,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "http://localhost:5174",
-      "http://localhost:8000",
     ],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,

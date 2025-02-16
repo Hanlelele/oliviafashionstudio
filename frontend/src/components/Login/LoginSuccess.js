@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const LoginSuccess = () => {
     const { userId } = useParams();
     const { login } = useAuth();
@@ -14,7 +16,7 @@ const LoginSuccess = () => {
         const fetchToken = async () => {
             try {
                 const user = { userId };
-                const response = await axios.post('http://localhost:8000/api/auth/login-success', user, {
+                const response = await axios.post(`${API_URL}/api/auth/login-success`, user, {
                     withCredentials: true,
                 });
 
