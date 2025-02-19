@@ -98,9 +98,9 @@ const ProductsPage = () => {
 
     return products ? (
         <div className=" w-fullflex flex-col items-center pb-[100px] px-2">
-            <div className="w-full grid grid-cols-[minmax(0,230px)_10fr] pt-[20px] gap-x-[28px]">
+            <div className="w-full md:grid md:grid-cols-[minmax(0,230px)_10fr] pt-[20px] gap-x-[28px]">
                 <div className="Filter flex flex-col gap-y-[20px]">
-                    <div className="AllCategories flex flex-col border-t">
+                    <div className="AllCategories md:flex md:flex-col border-t hidden">
                         <div className="flex gap-x-[12px] justify-center mt-4">
                             <Menu className="w-[24px] h-[24px] fill-dark hover:opacity-60 cursor-pointer" />
                             <p className="font-body text-[16px] hover:opacity-60 cursor-pointer">CATEGORIES</p>
@@ -121,7 +121,7 @@ const ProductsPage = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="PriceFilter flex flex-col border-t">
+                    <div className="PriceFilter md:flex md:flex-col border-t hidden">
                         <p className="pt-[12px] pb-[12px] font-body text-dark font-[600]">Price range</p>
                         <div className="grid grid-cols-2 gap-x-1">
                             <div className="flex flex-col">
@@ -193,20 +193,41 @@ const ProductsPage = () => {
                         )}
                     </div>
                     <div
-                        className="h-[40px] w-full bg-white border border-grey-300 rounded-md flex items-center justify-center shadow-sm cursor-pointer transition-transform hover:scale-105"
+                        className="h-[40px] w-full bg-white border border-grey-300 rounded-md md:flex items-center justify-center shadow-sm cursor-pointer transition-transform hover:scale-105 hidden"
                         onClick={handleFilterPriceRange}
                     >
                         <span className="text-primary font-body font-[500] ">Apply</span>
                     </div>
 
                     <div
-                        className="h-[40px] w-full bg-primary border border-grey-300 rounded-md flex items-center justify-center shadow-sm cursor-pointer transition-transform hover:scale-105"
+                        className="h-[40px] w-full bg-primary border border-grey-300 rounded-md md:flex items-center justify-center shadow-sm cursor-pointer transition-transform hover:scale-105 hidden"
                         onClick={handleClearAll}
                     >
                         <span className="text-white font-body font-[500] ">Clear All</span>
                     </div>
                 </div>
                 <div className="View">
+                    <div className="AllCategories flex flex-col border-t md:hidden">
+                        <div className="flex gap-x-[12px] justify-center mt-4">
+                            <Menu className="w-[24px] h-[24px] fill-dark hover:opacity-60 cursor-pointer" />
+                            <p className="font-body text-[16px] hover:opacity-60 cursor-pointer">CATEGORIES</p>
+                        </div>
+                        <div className="categoryBar p-[14px] flex flex-row gap-3">
+                            {categoryList.map((category, index) => (
+                                <NavLink
+                                    to={`/category/${category?._id}`}
+                                    key={index}
+                                    className={clsx(
+                                        categoryId === category._id && 'bg-sky-200 text-dark text-lg font-bold',
+                                        `flex flex-col justify-center items-center py-2 font-body text-grey-600 cursor-pointer hover:bg-sky-200 hover:text-dark hover:text-lg hover:border-0 hover:rounded-md border-sky-600 border-[1px] mb-1 text-center w-1/4`,
+                                    )}
+                                >
+                                    <img src={category.icon} className="w-5 h-5 md:inline-block block" />
+                                    <span className="w-10 text-xs">{category?.category}</span>
+                                </NavLink>
+                            ))}
+                        </div>
+                    </div>
                     <div className="sort-bar flex justify-between p-[20px] bg-white border border-grey-300 rounded-md shadow-sm">
                         <div className="flex items-center justify-center">
                             <p className="font-body">{totalProducts} items</p>
